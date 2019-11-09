@@ -4,6 +4,7 @@
 package com.threads;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -15,13 +16,13 @@ import java.util.ArrayList;
 class runningObject extends Circle {
     double angle;
     double r;
-    double V_r = 1;
+    double V_r = 10;
     double V_a = 0;
     double dt = 0.1;
     double x_0 = 250;
     double y_0 = 250;
 
-    runningObject(Group group){
+    runningObject(Group group) {
         group.getChildren().add(this);
         setRadius(5);
         setFill(Color.BLUE);
@@ -29,9 +30,16 @@ class runningObject extends Circle {
         compute();
     }
 
-    public void compute(){
-        double x = x_0;
+    public void compute() {
+        r += dt * V_r;
+        double x = x_0 + r;
         double y = y_0;
+
+        if (x < 0 || x > 500 || y < 0 || y > 500) {
+            r = 0;
+            x = x_0;
+            y = y_0;
+        }
 
         setTranslateX(x);
         setTranslateY(y);
@@ -44,10 +52,18 @@ public class App extends Application {
     Thread animation = new Thread(new Runnable() {
         @Override
         public void run() {
-            while(true) {
+            while (true) {
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (runningObject object : objects)
+                            object.compute();
+                    }
+                });
 
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -63,7 +79,7 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        new runningObject(group);
+        objects.add(new runningObject(group));
 
         animation.start();
 
