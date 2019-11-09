@@ -15,6 +15,11 @@ public class App extends Application {
             while(true) {
                 System.out.println("napis");
 
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     });
