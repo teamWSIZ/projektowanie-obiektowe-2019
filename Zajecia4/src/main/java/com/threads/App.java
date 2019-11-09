@@ -24,6 +24,9 @@ class runningObject extends Circle {
 
     runningObject(Group group) {
         group.getChildren().add(this);
+
+        angle = Math.random()*360;
+
         setRadius(5);
         setFill(Color.BLUE);
 
@@ -32,8 +35,9 @@ class runningObject extends Circle {
 
     public void compute() {
         r += dt * V_r;
-        double x = x_0 + r;
-        double y = y_0;
+
+        double x = x_0 + r*Math.cos(Math.toRadians(angle));
+        double y = y_0 + r*Math.sin(Math.toRadians(angle));
 
         if (x < 0 || x > 500 || y < 0 || y > 500) {
             r = 0;
@@ -79,7 +83,8 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        objects.add(new runningObject(group));
+        for(int i=0;i<1000;i++)
+            objects.add(new runningObject(group));
 
         animation.start();
 
