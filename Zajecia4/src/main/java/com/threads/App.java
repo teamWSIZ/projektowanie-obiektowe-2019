@@ -6,14 +6,45 @@ package com.threads;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
+class runningObject extends Circle {
+    double angle;
+    double r;
+    double V_r = 1;
+    double V_a = 0;
+    double dt = 0.1;
+    double x_0 = 250;
+    double y_0 = 250;
+
+    runningObject(Group group){
+        group.getChildren().add(this);
+        setRadius(5);
+        setFill(Color.BLUE);
+
+        compute();
+    }
+
+    public void compute(){
+        double x = x_0;
+        double y = y_0;
+
+        setTranslateX(x);
+        setTranslateY(y);
+    }
+}
+
 public class App extends Application {
+    ArrayList<runningObject> objects = new ArrayList<>();
+
     Thread animation = new Thread(new Runnable() {
         @Override
         public void run() {
             while(true) {
-                System.out.println("napis");
 
                 try {
                     Thread.sleep(1000);
@@ -31,6 +62,8 @@ public class App extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        new runningObject(group);
 
         animation.start();
 
