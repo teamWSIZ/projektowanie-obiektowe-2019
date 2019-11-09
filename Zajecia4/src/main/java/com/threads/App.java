@@ -9,6 +9,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    Thread animation = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while(true) {
+                System.out.println("napis");
+
+            }
+        }
+    });
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Group group = new Group();
@@ -16,6 +26,8 @@ public class App extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        animation.start();
 
     }
 }
