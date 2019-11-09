@@ -8,7 +8,7 @@ class runningObject extends Circle {
     double angle;
     double r;
     double V_r = 10;
-    double V_a = 0;
+    double V_a = 1;
     double dt = 0.1;
     double x_0 = 250;
     double y_0 = 250;
@@ -17,15 +17,17 @@ class runningObject extends Circle {
         group.getChildren().add(this);
 
         angle = Math.random()*360;
+        V_r = V_r+Math.random()*10;
 
         setRadius(5);
-        setFill(Color.BLUE);
+        setFill(genV.getColor());
 
         compute();
     }
 
     public void compute() {
         r += dt * V_r;
+        angle+=dt*V_a;
 
         double x = x_0 + r*Math.cos(Math.toRadians(angle));
         double y = y_0 + r*Math.sin(Math.toRadians(angle));
