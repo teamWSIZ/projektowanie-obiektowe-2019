@@ -13,6 +13,8 @@ class runningObject extends Circle {
     double x_0 = 250;
     double y_0 = 250;
 
+    genV generator = genV.getInstance();
+
     runningObject(Group group) {
         group.getChildren().add(this);
 
@@ -20,7 +22,8 @@ class runningObject extends Circle {
         V_r = V_r+Math.random()*10;
 
         setRadius(5);
-        setFill(genV.getColor());
+
+        setFill(generator.getColor());
 
         compute();
     }
