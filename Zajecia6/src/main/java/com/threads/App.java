@@ -44,7 +44,7 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        for(int i=0;i<1000;i++)
+        for(int i=0;i<100;i++)
             objects.add(new runningObject(group));
 
         animation.start();

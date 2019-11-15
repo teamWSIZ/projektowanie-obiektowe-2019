@@ -29,7 +29,7 @@ class runningObject extends Circle {
 
     public void compute() {
         r += dt * V_r;
-        angle+=dt*V_a;
+        //angle+=dt*V_a;
 
         double x = x_0 + r*Math.cos(Math.toRadians(angle));
         double y = y_0 + r*Math.sin(Math.toRadians(angle));
