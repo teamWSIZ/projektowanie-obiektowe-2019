@@ -82,8 +82,11 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        genV generator = genV.getInstance();
+        runningObjBuilder builder = new runningObjBuilder(group);
+
         for(int i=0;i<100;i++)
-            objects.add(new runningObject(group));
+            objects.add(builder.setColor(generator.getColor()).setRadius(10).build());
 
         animation.start();
 
@@ -92,6 +95,6 @@ public class App extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        
+
     }
 }
