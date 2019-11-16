@@ -5,19 +5,39 @@ package com.threads;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class App extends Application {
+    ReentrantLock lock = new ReentrantLock();
+    Condition condition = lock.newCondition();
+
+    boolean working = true;
+
     ArrayList<runningObject> objects = new ArrayList<>();
 
     Thread animation = new Thread(new Runnable() {
         @Override
         public void run() {
             while (true) {
+
+                try {
+                    lock.lock();
+                    if(!working)
+                        condition.await();
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }finally{
+                    lock.unlock();
+                }
 
                 Platform.runLater(new Runnable() {
                     @Override
@@ -36,10 +56,28 @@ public class App extends Application {
         }
     });
 
+    private void switchState(){
+        if(working){
+            working=!working;
+        }else{
+            lock.lock();
+            working = true;
+            condition.signal();
+            lock.unlock();
+        }
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Group group = new Group();
         Scene scene = new Scene(group, 500, 500);
+
+        scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                switchState();
+            }
+        });
 
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -49,5 +87,11 @@ public class App extends Application {
 
         animation.start();
 
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        
     }
 }
