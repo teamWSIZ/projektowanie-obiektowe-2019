@@ -5,6 +5,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 class runningObject extends Circle {
+    @FunctionalInterface
+    public interface angleSpeed{
+        //dt*V_a;
+        double compute(double dt, double va);
+    }
+
+    angleSpeed mLambdaAngleSpeed = null;
+
     double angle;
     double r;
     double V_r = 10;
@@ -13,8 +21,10 @@ class runningObject extends Circle {
     double x_0 = 250;
     double y_0 = 250;
 
-    runningObject(Group group, Color color, double R) {
+    runningObject(Group group, Color color, double R, angleSpeed va) {
         group.getChildren().add(this);
+
+        mLambdaAngleSpeed = va;
 
         angle = Math.random()*360;
         V_r = V_r+Math.random()*10;
@@ -28,7 +38,7 @@ class runningObject extends Circle {
 
     public void compute() {
         r += dt * V_r;
-        angle+=dt*V_a;
+        angle+=mLambdaAngleSpeed.compute(dt,V_a);
 
         double x = x_0 + r*Math.cos(Math.toRadians(angle));
         double y = y_0 + r*Math.sin(Math.toRadians(angle));

@@ -23,6 +23,6 @@ public class runningObjBuilder {
     }
 
     public runningObject build(){
-        return new runningObject(group,color,R);
+        return new runningObject(group,color,R,(dt,V_a)->dt*V_a);
     }
 }
