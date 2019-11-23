@@ -6,6 +6,11 @@ plugins {
 
 sourceCompatibility = 1.8
 
+test{
+    useJUnitPlatform(){
+        includeTags "Funkcja"
+    }
+}
 repositories {
     mavenCentral()
 }

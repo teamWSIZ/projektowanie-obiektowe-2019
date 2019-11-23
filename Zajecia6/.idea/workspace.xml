@@ -9,12 +9,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/threads/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/threads/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/threads/genV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/threads/genV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/threads/runningObjBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/threads/runningObjBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/threads/runningObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/threads/runningObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/threads/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/threads/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +125,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/threads" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Zajecia6 [run]">
+  <component name="RunManager" selected="Gradle.Zajecia6 [test]">
     <configuration name="Zajecia6 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -183,8 +183,28 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="Zajecia6 [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Zajecia6 [test]" />
         <item itemvalue="Gradle.Zajecia6 [run]" />
         <item itemvalue="Gradle.Zajecia6 [jar]" />
         <item itemvalue="Gradle.Zajecia6 [build]" />
@@ -234,25 +254,25 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="495" y="348" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.877@0.23.1440.877" timestamp="1573846743569" />
-    <state width="1224" height="131" key="GridCell.Tab.0.bottom" timestamp="1574497996275">
+    <state width="1224" height="100" key="GridCell.Tab.0.bottom" timestamp="1574498077838">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1224" height="131" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1574497996275" />
+    <state width="1224" height="100" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1574498077838" />
     <state width="1336" height="257" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1574374969319" />
-    <state width="1224" height="131" key="GridCell.Tab.0.center" timestamp="1574497996271">
+    <state width="1224" height="100" key="GridCell.Tab.0.center" timestamp="1574498077837">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1224" height="131" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1574497996271" />
+    <state width="1224" height="100" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1574498077837" />
     <state width="1336" height="257" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1574374969318" />
-    <state width="1224" height="131" key="GridCell.Tab.0.left" timestamp="1574497996271">
+    <state width="1224" height="100" key="GridCell.Tab.0.left" timestamp="1574498077836">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1224" height="131" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1574497996271" />
+    <state width="1224" height="100" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1574498077836" />
     <state width="1336" height="257" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1574374969318" />
-    <state width="1224" height="131" key="GridCell.Tab.0.right" timestamp="1574497996272">
+    <state width="1224" height="100" key="GridCell.Tab.0.right" timestamp="1574498077837">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state width="1224" height="131" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1574497996272" />
+    <state width="1224" height="100" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1574498077837" />
     <state width="1336" height="257" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1574374969319" />
     <state width="1336" height="257" key="GridCell.Tab.1.bottom" timestamp="1574374969320">
       <screen x="0" y="23" width="1440" height="877" />

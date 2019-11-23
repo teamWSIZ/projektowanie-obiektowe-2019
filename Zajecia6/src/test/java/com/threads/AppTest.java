@@ -3,10 +3,12 @@
  */
 package com.threads;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
     @Test
+    @Tag("Funkcja")
     public void testAppHasAGreeting() {
         App classUnderTest = new App();
     }
