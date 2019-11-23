@@ -4,7 +4,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-class runningObject extends Circle {
+public class runningObject extends Circle {
     @FunctionalInterface
     public interface angleSpeed{
         //dt*V_a;

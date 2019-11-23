@@ -8,6 +8,8 @@ public class runningObjBuilder {
     Color color = Color.BLUE;
     double R = 5;
 
+    runningObject.angleSpeed mLambdaAngleSpeed = (dt,V_a)->dt*V_a;
+
     public runningObjBuilder(Group group){
         this.group = group;
     }
@@ -22,7 +24,12 @@ public class runningObjBuilder {
         return this;
     }
 
+    runningObjBuilder setAngleSpeed(runningObject.angleSpeed speed){
+        this.mLambdaAngleSpeed = speed;
+        return this;
+    }
+
     public runningObject build(){
-        return new runningObject(group,color,R,(dt,V_a)->dt*V_a);
+        return new runningObject(group,color,R,mLambdaAngleSpeed);
     }
 }

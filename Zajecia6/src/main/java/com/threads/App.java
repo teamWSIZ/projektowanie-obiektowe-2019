@@ -31,12 +31,12 @@ public class App extends Application {
 
                 try {
                     lock.lock();
-                    if(!working)
+                    if (!working)
                         condition.await();
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally{
+                } finally {
                     lock.unlock();
                 }
 
@@ -57,10 +57,10 @@ public class App extends Application {
         }
     });
 
-    private void switchState(){
-        if(working){
-            working=!working;
-        }else{
+    private void switchState() {
+        if (working) {
+            working = !working;
+        } else {
             lock.lock();
             working = true;
             condition.signal();
@@ -86,8 +86,12 @@ public class App extends Application {
         genV generator = genV.getInstance();
         runningObjBuilder builder = new runningObjBuilder(group);
 
-        for(int i=0;i<100;i++)
-            objects.add(builder.setColor(generator.getColor()).setRadius(10).build());
+        for (int i = 0; i < 100; i++)
+            objects.add(builder
+                    .setAngleSpeed(generator.getAngleSpeed())
+                    .setColor(generator.getColor())
+                    .setRadius(10)
+                    .build());
 
         animation.start();
 
