@@ -21,13 +21,14 @@ public class App extends Application {
     Condition condition = lock.newCondition();
 
     boolean working = true;
+    boolean programWorking = true;
 
     ArrayList<runningObject> objects = new ArrayList<>();
 
     Thread animation = new Thread(new Runnable() {
         @Override
         public void run() {
-            while (true) {
+            while (programWorking) {
 
                 try {
                     lock.lock();
@@ -100,6 +101,14 @@ public class App extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
+
+        programWorking = false;
+        
+        lock.lock();
+        condition.signal();
+        lock.unlock();
+
+        animation.join();
 
     }
 }
