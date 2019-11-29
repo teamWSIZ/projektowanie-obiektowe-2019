@@ -13,6 +13,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -103,7 +104,7 @@ public class App extends Application {
         super.stop();
 
         programWorking = false;
-        
+
         lock.lock();
         condition.signal();
         lock.unlock();
