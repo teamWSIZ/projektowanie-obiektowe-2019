@@ -21,17 +21,44 @@ class Ship{
 
     long lastTimePressed;
 
-    double speed = 0.1;
+    double v = 0.1;
+
+    private long dt(){
+        long currentTime = System.currentTimeMillis();
+        long time =  currentTime - lastTimePressed;
+        lastTimePressed = currentTime;
+
+        return time;
+    }
+
+    private double computeDistance(double dt){
+        return v*dt;
+    }
 
     EventHandler<KeyEvent> eventHandler = new EventHandler<KeyEvent>() {
         @Override
         public void handle(KeyEvent event) {
             if(event.getCode()== KeyCode.LEFT){
-                System.out.println("left");
+
+                if(!left){
+                    left = true;
+                    lastTimePressed = System.currentTimeMillis();
+                }else{
+                    double dx = computeDistance(dt());
+                    rect.setTranslateX(rect.getTranslateX()-dx);
+                }
+
             }
 
             if(event.getCode()==KeyCode.RIGHT){
-                System.out.println("right");
+
+                if(!right){
+                    right = true;
+                    lastTimePressed = System.currentTimeMillis();
+                }else{
+                    double dx = computeDistance(dt());
+                    rect.setTranslateX(rect.getTranslateX()+dx);
+                }
             }
 
             event.consume();
