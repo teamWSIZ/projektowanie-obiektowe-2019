@@ -1,5 +1,6 @@
 package com.threads;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -7,6 +8,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 class Ship{
     Rectangle rect = new Rectangle();
@@ -44,8 +46,16 @@ class Ship{
                     left = true;
                     lastTimePressed = System.currentTimeMillis();
                 }else{
-                    double dx = computeDistance(dt());
-                    rect.setTranslateX(rect.getTranslateX()-dx);
+                    double dt = dt();
+                    double dx = computeDistance(dt);
+
+                    TranslateTransition tt = new TranslateTransition();
+                    tt.setFromX(rect.getTranslateX());
+
+                    tt.setToX(rect.getTranslateX()-dx);
+                    tt.setDuration(Duration.millis(dt));
+                    tt.setNode(rect);
+                    tt.play();
                 }
 
             }
