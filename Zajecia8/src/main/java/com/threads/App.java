@@ -4,8 +4,11 @@
 package com.threads;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -18,6 +21,21 @@ class Ship{
     double height;
 
     double bottomMargin = 5;
+
+    EventHandler<KeyEvent> eventHandler = new EventHandler<KeyEvent>() {
+        @Override
+        public void handle(KeyEvent event) {
+            if(event.getCode()== KeyCode.LEFT){
+                System.out.println("left");
+            }
+
+            if(event.getCode()==KeyCode.RIGHT){
+                System.out.println("right");
+            }
+
+            event.consume();
+        }
+    };
 
     Ship(Group group, Scene scene, double width, double height){
 
@@ -34,7 +52,10 @@ class Ship{
         group.getChildren().add(rect);
 
         redraw();
+
+        scene.setOnKeyPressed(eventHandler);
     }
+
     public void redraw(){
         rect.setTranslateX(scene.getWidth()/2-width/2);
         rect.setTranslateY(scene.getHeight()-height-bottomMargin);
