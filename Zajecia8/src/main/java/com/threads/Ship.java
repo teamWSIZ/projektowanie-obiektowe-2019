@@ -35,8 +35,8 @@ class Ship{
         return time;
     }
 
-    private double computeDistance(double dt){
-        return v*dt;
+    private double computeDistance(double x,double dt){
+        return ShipEquations.speedX(x)*dt;
     }
 
     EventHandler<KeyEvent> eventHandler = new EventHandler<KeyEvent>() {
@@ -49,7 +49,9 @@ class Ship{
                     lastTimePressed = System.currentTimeMillis();
                 }else{
                     double dt = dt();
-                    double dx = computeDistance(dt);
+                    double x = getShipCenter();
+
+                    double dx = computeDistance(x,dt);
 
                     tt.stop();
                     tt.setFromX(rect.getTranslateX());
@@ -57,7 +59,7 @@ class Ship{
                     double newY = rect.getTranslateX()-dx;
 
                     if(newY>0) {
-                        
+
                         tt.setToX(rect.getTranslateX() - dx);
                         tt.setDuration(Duration.millis(dt));
                         tt.setNode(rect);
@@ -75,7 +77,8 @@ class Ship{
                     lastTimePressed = System.currentTimeMillis();
                 }else{
                     double dt = dt();
-                    double dx = computeDistance(dt);
+                    double x = getShipCenter();
+                    double dx = computeDistance(x,dt);
 
                     tt.stop();
                     tt.setFromX(rect.getTranslateX());
@@ -132,5 +135,9 @@ class Ship{
     public void redraw(){
         rect.setTranslateX(scene.getWidth()/2-width/2);
         rect.setTranslateY(scene.getHeight()-height-bottomMargin);
+    }
+
+    private double getShipCenter(){
+        return rect.getTranslateX() - width/2;
     }
 }
