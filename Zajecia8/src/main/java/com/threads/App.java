@@ -7,6 +7,8 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -24,6 +26,10 @@ public class App extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        Ship ship = new Ship(group,scene,50,20);
+        Image image = new Image(getClass().getResource("grass.png").toString());
+        group.getChildren().add(new ImageView(image));
+
+        ShipBuilder builder = new ShipBuilder(group,scene);
+        Ship ship = builder.build();
     }
 }

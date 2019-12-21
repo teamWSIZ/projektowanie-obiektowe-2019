@@ -25,6 +25,8 @@ class Ship{
 
     double v = 0.1;
 
+    TranslateTransition tt = new TranslateTransition();
+
     private long dt(){
         long currentTime = System.currentTimeMillis();
         long time =  currentTime - lastTimePressed;
@@ -49,13 +51,19 @@ class Ship{
                     double dt = dt();
                     double dx = computeDistance(dt);
 
-                    TranslateTransition tt = new TranslateTransition();
+                    tt.stop();
                     tt.setFromX(rect.getTranslateX());
 
-                    tt.setToX(rect.getTranslateX()-dx);
-                    tt.setDuration(Duration.millis(dt));
-                    tt.setNode(rect);
-                    tt.play();
+                    double newY = rect.getTranslateX()-dx;
+
+                    if(newY>0) {
+                        
+                        tt.setToX(rect.getTranslateX() - dx);
+                        tt.setDuration(Duration.millis(dt));
+                        tt.setNode(rect);
+                        tt.play();
+                    }
+
                 }
 
             }
@@ -66,8 +74,21 @@ class Ship{
                     right = true;
                     lastTimePressed = System.currentTimeMillis();
                 }else{
-                    double dx = computeDistance(dt());
-                    rect.setTranslateX(rect.getTranslateX()+dx);
+                    double dt = dt();
+                    double dx = computeDistance(dt);
+
+                    tt.stop();
+                    tt.setFromX(rect.getTranslateX());
+
+                    double newY = rect.getTranslateX()-dx;
+
+                    if(newY<scene.getWidth()-width) {
+
+                        tt.setToX(rect.getTranslateX() + dx);
+                        tt.setDuration(Duration.millis(dt));
+                        tt.setNode(rect);
+                        tt.play();
+                    }
                 }
             }
 

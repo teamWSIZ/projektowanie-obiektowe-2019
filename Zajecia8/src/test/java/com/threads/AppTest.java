@@ -3,12 +3,33 @@
  */
 package com.threads;
 
+import org.assertj.core.data.Offset;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AppTest {
     @Test
-    public void testAppHasAGreeting() {
-        App classUnderTest = new App();
+    @Tag("Ship")
+    public void shipEquationTest() {
+        ShipEquations shipE = new ShipEquations();
+
+        double oczekiwanaWartosc = 0.1;
+        assertThat(ShipEquations.speedX(10)).isCloseTo(oczekiwanaWartosc,offset(0.001));
+
+    }
+
+    @Tag("Funkcja")
+    @Test
+    public void funkcjaTestowa1(){
+
+        double a = 100;
+        double b = 105.1;
+
+        assertThat(a).isEqualTo(b,offset(5.0));
 
     }
 }
