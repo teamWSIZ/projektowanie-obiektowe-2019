@@ -36,7 +36,7 @@ class Ship{
     }
 
     private double computeDistance(double x,double dt){
-        return ShipEquations.speedX(x)*dt;
+        return ShipEquations.speedX(x,0,scene.getWidth())*dt;
     }
 
     EventHandler<KeyEvent> eventHandler = new EventHandler<KeyEvent>() {
@@ -51,7 +51,7 @@ class Ship{
                     double dt = dt();
                     double x = getShipCenter();
 
-                    double dx = computeDistance(x,dt);
+                    double dx = computeDistance(x-width/2,dt);
 
                     tt.stop();
                     tt.setFromX(rect.getTranslateX());
@@ -86,7 +86,6 @@ class Ship{
                     double newX = rect.getTranslateX()-dx;
 
                     if(newX<scene.getWidth()/2+width) {
-
                         tt.setToX(rect.getTranslateX() + dx);
                         tt.setDuration(Duration.millis(dt));
                         tt.setNode(rect);
