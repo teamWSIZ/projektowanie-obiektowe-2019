@@ -85,7 +85,7 @@ class Ship{
 
                     double newX = rect.getTranslateX()-dx;
 
-                    if(newX<(scene.getWidth()-width)/2) {
+                    if(newX<scene.getWidth()/2-width/2) {
 
                         tt.setToX(rect.getTranslateX() + dx);
                         tt.setDuration(Duration.millis(dt));
@@ -138,6 +138,7 @@ class Ship{
     }
 
     private double getShipCenter(){
-        return rect.getTranslateX() - width/2;
+
+        return rect.getTranslateX() + width/2;
     }
 }
