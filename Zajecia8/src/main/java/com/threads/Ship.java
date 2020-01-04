@@ -56,9 +56,9 @@ class Ship{
                     tt.stop();
                     tt.setFromX(rect.getTranslateX());
 
-                    double newY = rect.getTranslateX()-dx;
+                    double newX = rect.getTranslateX()-dx;
 
-                    if(newY>0) {
+                    if(newX>0) {
 
                         tt.setToX(rect.getTranslateX() - dx);
                         tt.setDuration(Duration.millis(dt));
@@ -83,9 +83,9 @@ class Ship{
                     tt.stop();
                     tt.setFromX(rect.getTranslateX());
 
-                    double newY = rect.getTranslateX()-dx;
+                    double newX = rect.getTranslateX()-dx;
 
-                    if(newY<scene.getWidth()-width) {
+                    if(newX<(scene.getWidth()-width)/2) {
 
                         tt.setToX(rect.getTranslateX() + dx);
                         tt.setDuration(Duration.millis(dt));
