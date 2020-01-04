@@ -85,9 +85,14 @@ class Ship{
 
                     double newX = rect.getTranslateX()-dx;
 
-                    if(newX<scene.getWidth()/2-width/2) {
+                    if(newX<scene.getWidth()/2+width) {
 
                         tt.setToX(rect.getTranslateX() + dx);
+                        tt.setDuration(Duration.millis(dt));
+                        tt.setNode(rect);
+                        tt.play();
+                    }else{
+                        tt.setToX(scene.getWidth()-width);
                         tt.setDuration(Duration.millis(dt));
                         tt.setNode(rect);
                         tt.play();
