@@ -5,6 +5,11 @@ package com.example.factory;
 
 public class App {
     public static void main(String[] args) {
+        Car bmw = new Bmw("2.5","19","450hp","Coupe");
+        Car opel = new OpelInsignia("2.0","19","250hp","Coupe");
+
+        bmw.print();
+        opel.print();
     }
 }
 

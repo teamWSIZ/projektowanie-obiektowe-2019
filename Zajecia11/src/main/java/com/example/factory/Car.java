@@ -7,5 +7,14 @@ public abstract class Car{
     public abstract String body();
 
     public abstract String brand();
+
+    @Override
+    public String toString() {
+        return brand()+" : "+"["+engine()+", "+wheels()+", "+power()+", "+body()+"]";
+    }
+
+    public void print(){
+        System.out.println(toString());
+    }
 }
 
