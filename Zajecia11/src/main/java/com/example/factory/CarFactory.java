@@ -10,4 +10,8 @@ class CarFactory{
 
         return null;
     }
+
+    static Car createRandomCar(){
+        return null;
+    }
 }
