@@ -20,4 +20,4 @@ dependencies {
     testCompile 'org.assertj:assertj-core:3.11.1'
 }
 
-mainClassName = 'com.threads.App'
+mainClassName = 'com.example.factory.App'
