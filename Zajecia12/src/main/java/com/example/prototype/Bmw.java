@@ -37,4 +37,9 @@ public class Bmw extends Car{
     public String brand() {
         return "BMW";
     }
+
+    @Override
+    protected Object clone() {
+        return new Bmw(engine,wheels,power,body);
+    }
 }

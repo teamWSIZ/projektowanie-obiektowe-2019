@@ -4,11 +4,12 @@
 package com.example.prototype;
 
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Bmw bmw0 = new Bmw("2.5","19","450hp","Coupe");
+        bmw0.print();
+
+        Bmw bmw1 = (Bmw)bmw0.clone();
+        bmw1.print();
     }
 }
