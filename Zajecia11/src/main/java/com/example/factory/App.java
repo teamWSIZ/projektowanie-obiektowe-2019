@@ -23,7 +23,6 @@ public class App {
             }
         }
 
-
         for(Car car : cars)
             car.print();
     }
