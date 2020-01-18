@@ -9,24 +9,35 @@ public class App {
 
     public static void main(String[] args) {
 
-        ArrayList<Car> cars = new ArrayList<>();
+        ArrayList<Object> cars = new ArrayList<>();
 
-        Car car;
+        Car bmw = CarFactory.createCar("BMW","2.5","19","450hp","Coupe");
+        Car opel = CarFactory.createCar("OpelInsignia","2.0","19","250hp","Coupe");
 
-        for(int i=0;i<10;i++){
-            switch((int)(Math.random()*2+1)){
-                case 1:
-                    car = CarFactory.createCar("BMW","2.5","19","450hp","Coupe");
-                    cars.add(car);
-                    break;
-                case 2:
-                    car = CarFactory.createCar("OpelInsignia","2.0","19","250hp","Coupe");
-                    cars.add(car);
-                    break;
+        cars.add(bmw);
+        cars.add(opel);
+
+        CarFactory.setPrototype(bmw);
+
+        for(int i=0;i<10;i++) {
+            try {
+                cars.add(CarFactory.getCar());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
             }
         }
 
-        for(Car car0 : cars)
-            car0.print();
+        CarFactory.setPrototype(new Bmw("3.5","19","650hp","Coupe"));
+
+        for(int i=0;i<10;i++) {
+            try {
+                cars.add(CarFactory.getCar());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for(Object car0 : cars)
+            ((Car)car0).print();
     }
 }
