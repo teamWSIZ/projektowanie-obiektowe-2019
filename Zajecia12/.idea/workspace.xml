@@ -31,6 +31,23 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="PrototypeExample" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="PrototypeExample" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="PrototypeExample" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="PrototypeExample" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -139,10 +156,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="688" y="161" key="#com.intellij.ide.util.MemberChooser" timestamp="1579333914563">
+    <state x="688" y="161" key="#com.intellij.ide.util.MemberChooser" timestamp="1579334581164">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="688" y="161" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1057@0.23.1920.1057" timestamp="1579333914563" />
+    <state x="688" y="161" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1057@0.23.1920.1057" timestamp="1579334581164" />
     <state width="1790" height="258" key="GridCell.Tab.0.bottom" timestamp="1579334428031">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
