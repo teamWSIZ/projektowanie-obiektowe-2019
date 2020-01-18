@@ -27,7 +27,7 @@ public class App {
             }
         }
 
-        CarFactory.setPrototype(new Bmw("3.5","19","650hp","Coupe"));
+        CarFactory.setPrototypeForTime(new Bmw("3.5","19","650hp","Coupe"),1);
 
         for(int i=0;i<10;i++) {
             try {
