@@ -2,9 +2,17 @@ package com.example.prototype;
 
 class CarFactory{
     static Car prototype;
+    static Car timedPrototype;
+
+    static long timeout;
 
     static void setPrototype(Car prototype){
         CarFactory.prototype = prototype;
+    }
+
+    static void setPrototypeForTime(Car prototype, long timeSeconds){
+        CarFactory.timedPrototype  = prototype;
+        CarFactory.timeout = System.currentTimeMillis()+timeSeconds*1000;
     }
 
     static Car createCar(String brand,String engine, String wheels, String power, String body){
@@ -18,7 +26,10 @@ class CarFactory{
     }
 
     static Object getCar() throws CloneNotSupportedException {
-        return prototype.clone();
+        if(timeout>System.currentTimeMillis())
+            return timedPrototype.clone();
+        else
+            return prototype.clone();
     }
 
     static Car createRandomCar(){
