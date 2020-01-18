@@ -37,6 +37,44 @@ public class App {
             }
         }
 
+        try {
+            Thread.sleep(1100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        for(int i=0;i<10;i++) {
+            try {
+                cars.add(CarFactory.getCar());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        CarFactory.setPrototypeForTime(opel,1);
+
+        for(int i=0;i<10;i++) {
+            try {
+                cars.add(CarFactory.getCar());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            Thread.sleep(1100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        for(int i=0;i<10;i++) {
+            try {
+                cars.add(CarFactory.getCar());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
+
         for(Object car0 : cars)
             ((Car)car0).print();
     }
