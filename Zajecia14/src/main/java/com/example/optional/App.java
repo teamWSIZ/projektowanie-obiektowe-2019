@@ -7,6 +7,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Optional;
 
 public class App {
     static ArrayList<Double> mTab = new ArrayList<>();
@@ -14,8 +17,9 @@ public class App {
     public static void main(String[] args) {
         //oblicz(null);
 
-        mTab.add(10.0);
-        mTab.add(-10.0);
+        mTab.addAll(Collections.nCopies(5,10.0));
+        for(int i=0;i<5;i++) mTab.add(10.0);
+
 
         try {
             System.out.println("Średnia: "+average(mTab));
@@ -61,6 +65,14 @@ public class App {
         }
 
         throw new Exception("Tablica nie zawiera elementów...");
+    }
+
+    @NotNull
+    static Double median(@NotNull ArrayList<Double> tablica){
+
+        Collections.sort(tablica);
+
+        return 0.0;
     }
 
 
