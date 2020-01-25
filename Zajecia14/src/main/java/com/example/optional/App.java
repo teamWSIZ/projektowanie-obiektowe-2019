@@ -16,34 +16,18 @@ public class App {
         mTab.add(1.0);
         mTab.add(2.0);
 
+
         try {
-            System.out.println("Średnia: "+average1(mTab));
+            System.out.println("Średnia: "+average(mTab));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println("Kolejna linia...");
 
         oblicz1(null);
     }
 
-    static void oblicz(int[] tablica){
-        int a = tablica[0];
-    }
-
-    static double average(ArrayList<Double> tablica) throws NullPointerException{
-        if(tablica==null)
-            throw new NullPointerException("Tablica powinna coś zawierać");
-
-        double srednia = 0;
-
-        for(Double value : tablica)
-            srednia+=value;
-
-        return srednia/tablica.size();
-    }
-
-    static double average1(ArrayList<Double> tablica) throws Exception{
+    static double average(ArrayList<Double> tablica) throws Exception{
         double srednia = 0;
 
         if(tablica!=null && tablica.size()!=0){
@@ -56,7 +40,5 @@ public class App {
         return srednia/tablica.size();
     }
 
-    @NotNull static Double oblicz1(@NotNull int [] tablica){
-        return null;
-    }
+
 }
