@@ -4,6 +4,7 @@
 package com.example.optional;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
@@ -13,14 +14,16 @@ public class App {
     public static void main(String[] args) {
         //oblicz(null);
 
-        mTab.add(1.0);
-        mTab.add(2.0);
+        mTab.add(10.0);
+        mTab.add(-10.0);
 
         try {
             System.out.println("Średnia: "+average(mTab));
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        mTab.removeAll(mTab);
 
         try {
             System.out.println("Średnia: "+average1(mTab));
@@ -30,7 +33,8 @@ public class App {
 
     }
 
-    static double average(ArrayList<Double> tablica) throws Exception{
+    @NotNull
+    static Double average(@Nullable ArrayList<Double> tablica) throws Exception{
         double srednia = 0;
 
         if(tablica!=null && tablica.size()!=0){
@@ -44,17 +48,19 @@ public class App {
     }
 
     @NotNull
-    static double average1(ArrayList<Double> tablica) throws Exception{
+    static Double average1(@NotNull ArrayList<Double> tablica) throws Exception {
         double srednia = 0;
 
-        if(tablica!=null && tablica.size()!=0){
+        if(tablica.size()!=0){
 
             for(Double value : tablica)
                 srednia+=value;
 
-        }else throw new Exception("Nieprawidłowe dane");
+            return srednia/tablica.size();
 
-        return srednia/tablica.size();
+        }
+
+        throw new Exception("Tablica nie zawiera elementów...");
     }
 
 
