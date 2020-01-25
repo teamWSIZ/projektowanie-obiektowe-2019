@@ -16,18 +16,35 @@ public class App {
         mTab.add(1.0);
         mTab.add(2.0);
 
-
         try {
             System.out.println("Średnia: "+average(mTab));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        try {
+            System.out.println("Średnia: "+average1(mTab));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        oblicz1(null);
     }
 
     static double average(ArrayList<Double> tablica) throws Exception{
+        double srednia = 0;
+
+        if(tablica!=null && tablica.size()!=0){
+
+            for(Double value : tablica)
+                srednia+=value;
+
+        }else throw new Exception("Nieprawidłowe dane");
+
+        return srednia/tablica.size();
+    }
+
+    @NotNull
+    static double average1(ArrayList<Double> tablica) throws Exception{
         double srednia = 0;
 
         if(tablica!=null && tablica.size()!=0){
