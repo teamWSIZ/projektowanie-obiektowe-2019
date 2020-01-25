@@ -3,12 +3,60 @@
  */
 package com.example.optional;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+    static ArrayList<Double> mTab = new ArrayList<>();
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        //oblicz(null);
+
+        mTab.add(1.0);
+        mTab.add(2.0);
+
+        try {
+            System.out.println("Średnia: "+average1(mTab));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Kolejna linia...");
+
+        oblicz1(null);
+    }
+
+    static void oblicz(int[] tablica){
+        int a = tablica[0];
+    }
+
+    static double average(ArrayList<Double> tablica) throws NullPointerException{
+        if(tablica==null)
+            throw new NullPointerException("Tablica powinna coś zawierać");
+
+        double srednia = 0;
+
+        for(Double value : tablica)
+            srednia+=value;
+
+        return srednia/tablica.size();
+    }
+
+    static double average1(ArrayList<Double> tablica) throws Exception{
+        double srednia = 0;
+
+        if(tablica!=null && tablica.size()!=0){
+
+            for(Double value : tablica)
+                srednia+=value;
+
+        }else throw new Exception("Nieprawidłowe dane");
+
+        return srednia/tablica.size();
+    }
+
+    static double oblicz1(@NotNull int [] tablica){
+        return tablica[0];
     }
 }
