@@ -56,7 +56,7 @@ public class App {
         return srednia/tablica.size();
     }
 
-    static double oblicz1(@NotNull int [] tablica){
-        return tablica[0];
+    @NotNull static Double oblicz1(@NotNull int [] tablica){
+        return null;
     }
 }
