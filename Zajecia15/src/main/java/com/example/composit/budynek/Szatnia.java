@@ -1,11 +1,11 @@
-package com.example.composit;
+package com.example.composit.budynek;
 
 import org.jetbrains.annotations.NotNull;
 
 public class Szatnia implements Pomieszczenie{
     Double powierzchnia;
 
-    Szatnia(@NotNull Double powierzchnia){
+    public Szatnia(@NotNull Double powierzchnia){
         this.powierzchnia = powierzchnia;
     }
 

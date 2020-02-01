@@ -1,4 +1,4 @@
-package com.example.composit;
+package com.example.composit.budynek;
 
 import org.jetbrains.annotations.NotNull;
 

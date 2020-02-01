@@ -1,4 +1,4 @@
-package com.example.composit;
+package com.example.composit.budynek;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -6,7 +6,7 @@ public class Kuchnia implements Pomieszczenie {
     private Double dlugosc;
     private Double szerokosc;
 
-    Kuchnia(@NotNull Double dlugosc, @NotNull Double szerokosc) {
+    public Kuchnia(@NotNull Double dlugosc, @NotNull Double szerokosc) {
         this.dlugosc = dlugosc;
         this.szerokosc = szerokosc;
     }

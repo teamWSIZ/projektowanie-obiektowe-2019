@@ -3,6 +3,8 @@
  */
 package com.example.composit;
 
+import com.example.composit.budynek.*;
+
 import java.util.ArrayList;
 
 public class App {
@@ -13,6 +15,7 @@ public class App {
         Szatnia szatnia = new Szatnia(40.0);
         Sala sala = new Sala(5.0, 6.0);
         Toaleta toaleta = new Toaleta(4.0, 4.0);
+        SalaWykladowa salaWykladowa = new SalaWykladowa(6.0,8.0,null,null);
 
         pomieszczenia.add(kuchnia);
         pomieszczenia.add(szatnia);
