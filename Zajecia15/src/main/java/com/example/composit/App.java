@@ -3,8 +3,29 @@
  */
 package com.example.composit;
 
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) {
+        ArrayList<Pomieszczenie> pomieszczenia = new ArrayList<>();
 
+        Kuchnia kuchnia = new Kuchnia(5.0, 5.0);
+        Szatnia szatnia = new Szatnia(40.0);
+        Sala sala = new Sala(5.0, 6.0);
+        Toaleta toaleta = new Toaleta(4.0, 4.0);
+
+        pomieszczenia.add(kuchnia);
+        pomieszczenia.add(szatnia);
+        pomieszczenia.add(sala);
+        pomieszczenia.add(toaleta);
+
+        wyswietl(pomieszczenia);
+
+    }
+
+    public static void wyswietl(ArrayList<Pomieszczenie> pomieszczenia) {
+        for (Pomieszczenie pomieszczenie : pomieszczenia) {
+            System.out.println(pomieszczenie.getName());
+        }
     }
 }
