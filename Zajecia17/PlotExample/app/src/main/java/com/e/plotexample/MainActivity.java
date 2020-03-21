@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
             series.appendData(new DataPoint(x, y), false, 100);
         }
 
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(y0);
+        graph.getViewport().setMaxY(fun(xmax));
+
         graph.addSeries(series);
     }
 
