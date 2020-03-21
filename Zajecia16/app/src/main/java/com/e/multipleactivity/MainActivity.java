@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent1 = new Intent(this,Activity1.class);
             startActivity(intent1);
         });
-        buttonActivity2.setOnClickListener(v->{});
+        buttonActivity2.setOnClickListener(v->{
+            Intent intent2 = new Intent(this,Activity2.class);
+            startActivity(intent2);
+        });
         buttonActivity3.setOnClickListener(v->{});
         buttonActivity4.setOnClickListener(v->{});
     }
