@@ -36,31 +36,32 @@ public class MainActivity extends AppCompatActivity {
             series.appendData(new DataPoint(x, y), false, 100);
         }
 
-        //graph.addSeries(series);
-
         LineGraphSeries<DataPoint> seriesN = new LineGraphSeries<>();
         LineGraphSeries<DataPoint> seriesN1 = new LineGraphSeries<>();
 
         int n=10;
         int n1 = 10;
 
-        for(int i=0;i<20;i++){
-            n = evaluate(n,1.1);
-            n1 = evaluate(n1,1.2);
+        int maxDni = 20;
+
+        for(int i=0;i<maxDni;i++){
+            n = evaluate(n,1.2);
+            n1 = evaluate(n1,1.3);
 
             seriesN.appendData(new DataPoint(i,n),false,1000);
             seriesN1.appendData(new DataPoint(i,n1),false,1000);
         }
 
+        infoView.setText("Liczba przypadków przy izolacji: "+n);
+        infoView2.setText("Liczba przypadków: "+n1);
+
         graph.addSeries(seriesN);
         graph.addSeries(seriesN1);
 
+        graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
         graph.getViewport().setMaxY(n1);
-
-        infoView.setText("Liczba przypadków przy izolacji: "+n);
-        infoView2.setText("Liczba przypadków: "+n1);
     }
 
     double fun(double x) {
