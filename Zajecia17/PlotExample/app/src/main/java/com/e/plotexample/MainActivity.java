@@ -15,15 +15,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        series.appendData(new DataPoint(10,10),false,100);
+        GraphView graph = findViewById(R.id.graph);
+
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
+
+        double x0 = 0;
+        double y0 = fun(x0);
+        double xmax = 10;
+        double dx = 0.1;
+
+        for (double x = x0; x <= xmax; x += dx) {
+            double y = fun(x);
+
+            series.appendData(new DataPoint(x, y), false, 100);
+        }
+
         graph.addSeries(series);
+    }
+
+    double fun(double x) {
+        return x * x;
     }
 }
