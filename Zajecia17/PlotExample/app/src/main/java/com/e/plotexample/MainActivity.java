@@ -1,6 +1,7 @@
 package com.e.plotexample;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,12 +11,15 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView infoView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         GraphView graph = findViewById(R.id.graph);
+        infoView = findViewById(R.id.textView);
 
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
 
@@ -35,9 +39,15 @@ public class MainActivity extends AppCompatActivity {
         graph.getViewport().setMaxY(fun(xmax));
 
         graph.addSeries(series);
+
+        infoView.setText("Liczba: "+0);
     }
 
     double fun(double x) {
         return x * x;
+    }
+
+    int evaluate(int n){
+        return (int)(1.2*n);
     }
 }
