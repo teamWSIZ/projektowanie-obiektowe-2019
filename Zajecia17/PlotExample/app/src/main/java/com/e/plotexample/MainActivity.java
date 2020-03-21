@@ -12,6 +12,7 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 public class MainActivity extends AppCompatActivity {
 
     TextView infoView;
+    TextView infoView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         GraphView graph = findViewById(R.id.graph);
         infoView = findViewById(R.id.textView);
+        infoView2 = findViewById(R.id.textView2);
 
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
 
@@ -40,14 +42,23 @@ public class MainActivity extends AppCompatActivity {
 
         graph.addSeries(series);
 
-        infoView.setText("Liczba: "+0);
+        int n=10;
+        int n1 = 10;
+
+        for(int i=0;i<20;i++){
+            n = evaluate(n,1.1);
+            n1 = evaluate(n1,1.5);
+        }
+
+        infoView.setText("Liczba przypadków przy izolacji: "+n);
+        infoView2.setText("Liczba przypadków: "+n1);
     }
 
     double fun(double x) {
         return x * x;
     }
 
-    int evaluate(int n){
-        return (int)(1.2*n);
+    int evaluate(int n, double speed){
+        return (int)(speed*n);
     }
 }
