@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
             seriesN1.appendData(new DataPoint(i,n1),false,1000);
         }
 
-        infoView.setText("Liczba przypadków przy izolacji: "+n);
-        infoView2.setText("Liczba przypadków: "+n1);
+        infoView.setText("Liczba przypadków przy izolacji: "+n+" po "+maxDni+" dniach");
+        infoView2.setText("Liczba przypadków: "+n1+" po "+maxDni+" dniach");
 
         graph.addSeries(seriesN);
         graph.addSeries(seriesN1);
